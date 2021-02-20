@@ -10,9 +10,9 @@
     --gray-background-global:#f0f2f5;
     --white-color-base: #fff;
     --background-color-header: #2d4a22;
+    --background-color-toggle-button: #c6c6c6
     
 }
-
 
 * {
     margin: 0;
@@ -128,30 +128,70 @@ button:hover{
 }
 
 input[type="checkbox"] {
+    display: flex;
+    align-items: center;
     width: 50px;
     height: 20px;
     -webkit-appearance: none;
+    background: var(--gray-background-global);
+    outline: none;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: 0.55s;
+    
 }
+
+input:checked[type="checkbox"] {
+    background: var(--dark-blue);
+    display: flex;
+    align-items: center;
+    
+    
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    position: relative;
+    width:22px;
+    height:22px;
+    border-radius: 20px;
+    top: 0px;
+    left: 0px;
+    background:var(--blue-header);
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.55s;
+    cursor: pointer;
+    
+}
+
+input:checked[type="checkbox"]::before {
+    left:30px;
+}
+
 
 /* Header ======================= */
 header {
-    background: var(--background-color-header);
+/* background: var(--background-color-header);
+    */
+    
+    
+    background: linear-gradient(to top right, purple, tomato);    
+    /* background: #be8dbb; */
     padding: 2rem 0 15rem;
 }
 
 .header {
+    
     display: flex;
-    align-items: center;
-    justify-content: center;   
+    justify-content: center;
+    
 }
 
-.light-dark {
-    position: absolute;
-    top: 40px;
-    right: 80px
+ .light-dark {
+    display: flex;
+    justify-content: center;
 }
-
-
 
 /* Está acessando o id */
 #logo {
@@ -195,7 +235,8 @@ header {
 }
 
 .card.total {
-    background: var(--green);
+    /* background: linear-gradient(0deg, #bfbdc1,#264653);; */
+    background: #db4437;
     color: var(--white-color-base);
 }
 
@@ -347,11 +388,23 @@ footer {
 }
 
 /* Responsive =============== */
-@media (min-width: 800px) {
+@media (min-width: 860px) {
     
     html{
         font-size: 87.7%;
     }
+
+    .header-theme {
+        display:flex;
+        align-items: center;
+    } 
+    
+    .light-dark {
+        position: relative;
+        left: 105%;
+    }
+    
+
 
     #balance {
         display: grid;
