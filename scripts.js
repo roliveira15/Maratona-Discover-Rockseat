@@ -217,6 +217,26 @@ const Form = {
         Form.date.value = ""
     },
 
+    animationform (){       
+        const button = document
+                        .getElementById("card-total")
+        const validationform = document
+                        .getElementById("modal-id")
+                        .classList.contains("active")
+        
+        if (validationform) {
+            button.classList.remove("div-bounce")
+        } else {
+            button.classList.toggle("div-bounce")
+        }
+        // const validate = 
+        //     validationform 
+        //     ?
+        //     button.classList.remove("div-bounce")
+        //     :
+        //     button.classList.toggle("div-bounce");
+    },
+
     submit(event) {
         event.preventDefault()
 
@@ -231,6 +251,8 @@ const Form = {
             Form.clearFields()
             //modal fechar
             Modal.activeclassorNo()
+            //Movimentar a caixa do total
+            Form.animationform()
 
         } catch (error) {
             alert(error.message)
@@ -258,4 +280,4 @@ const App = {
 
 
 
-App.init()
+App.init() 

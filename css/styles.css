@@ -2,39 +2,64 @@
 /* O root referencia a página principal index */
 :root {
 
-
-
     --background-body:#f0f2f5;
     --background-header: #2d4a22;
     --color-button-new-transition: #49AA26;
-    --background-toggle-button: #c6c6c6
+    
     --color-light-button-new-transition: #3dd705;
     --color-button-cancel:#e92929;  
     --color-value-negative:#e92929;  
-    --color-title-h1: #fff;
+    --color-value-positive:#12A454;
+    --color-title-card: #363f5f;
+    --color-title:#fff;
+    --table-color-base:#fff;
+    --color-button-card:#1f1b24;
+
     --color-letter-button: #fff;
+
     --color-button-lightDark: #14591d;
     --color-letter-description:#969cb3;
-    --background-card:#12a454;
+
+
+    --background-card:#fff;
+
+    --background-modal:#F0F2F5;
+    --background-input:#fff;
+    --color-modal-title: #363f5f;
 }
 
 @media (prefers-color-scheme: dark){
     :root {
-        --background-body: #161b22;
-        --background-header:#0D1117;
-        --color-button-new-transition: #480ca8;
-        --color-light-button-new-transition: #ff9e00;
+        
+        --background-body: #1f1b24;
+        --background-header:#121212;
+        --color-button-new-transition: #49AA26;
+        --color-light-button-new-transition: #3dd705;
         --color-button-cancel:#e92929;  
-        --color-value-negative:#ffcbf2;
-        --background-toggle-button:#274c77;
-        --color-title-h1: #fff;
-        --color-letter-button: #fff;
-        --color-button-lightDark: #4d5c4f;
-        --color-letter-description:#343201;
-        --background-card:#ff4;
+        --color-value-negative:#e92929;
+        --color-value-positive:#12A454;
+
+        --background-toggle-button:#2c2831;
+
+
+        --color-title-card: #E7E8E8;
+        --color-title:#fff;
+        --table-color-base:#121212a6;
+        --color-button-card:#fff;
+
+        --color-letter-button: #1f1b24;
+        
+        --color-button-lightDark: #37303f;
+        --color-letter-description:#969cb3;
+        --background-card:#1f1b24;
+
+        --background-modal:#1f1b24;
+        --background-input:#292430;
+
+        --color-modal-title: #F0F2F5;
+       
     }
 }
-
 
 * {
     margin: 0;
@@ -51,6 +76,7 @@ html{
 body {
     background: var(--background-body);
     font-family: 'Poppins', sans-serif;
+    transition: 0.3s;
 }
 
 .sr-only{
@@ -75,7 +101,7 @@ body {
 /* title ======================== */
 h1 {
     margin-top: 0rem;
-    color: var(--color-title-h1);
+    color: var(--color-title);
     font-weight: normal;
 }
 
@@ -241,32 +267,45 @@ header {
 
 /* Card ========================== */
 .card {
-    background: var(--color-title-h1);
+    background: var(--background-card);
     padding: 1.5rem 2rem;
     border-radius: 0.25rem;
     margin-bottom: 2rem;
-    color: var(--color-button-lightDark);
+    color: var(--color-button-card);
     box-shadow: 4px 5px 4px 1px rgba(0, 0, 0, 0.3);
 }
 
 .card h3{
     font-weight: normal;
     font-size: 1rem;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .card p{
+    
     font-size: 2rem;
     line-height: 3rem;
     margin-top: 1rem;
 }
 
-.card.total {
+.card.total{
     background: var(--color-button-new-transition);
-    color: var(--color-title-h1);
+    color: var(--color-title);
+}
+
+.div-bounce {
+    animation: bounce 0.4s;
+}
+
+@keyframes bounce {
+    10%, 40%, 70%{
+        transform:translateY(-10px)
+    }
+    25%, 55%, 85%{
+        transform:translateY(10px)
+    }
 }
 
 /* Table ======================= */
@@ -296,7 +335,7 @@ table tbody tr td:last-child {
 
 
 table thead th{
-    background: var(--color-title-h1);
+    background: var(--table-color-base);
     font-weight: normal;
     padding: 1rem 2rem;
     text-align: left;
@@ -311,7 +350,7 @@ table tbody tr:hover{
 }
 
 table tbody td{
-    background: var(--color-title-h1);
+    background: var(--table-color-base);
     padding: 1rem 2rem;
 }
 
@@ -320,11 +359,11 @@ td.description {
 }
 
 td.income{
-    color: var(--background-card);
+    color: var(--color-value-positive);
 }
 
 td.expense{
-    color: var(--color-button-cancel);
+    color: var(--color-value-negative);
 }
 
 /* modal ======================= */
@@ -359,33 +398,41 @@ visivel */
 }
 
 .modal {
-    background: #F0F2F5;
+    
+    background:var(--background-modal) ;
     padding: 2.4rem;
     width: 90%;
     max-width: 500px;
 
     position: relative;
     z-index: 1;
+    transition-delay: 0.2s;
 }
 
 
 
 /* form ======================= */
 #form {
+    color: var(--color-modal-title);
     max-width: 500px;
 }
 
 #form h2 {
+    
     margin-top: 0;
 }
 
 #form input {
+    
     border: none;
     border-radius: 0.2rem;
     
     padding: 0.8rem;
 
     width: 100%;
+    color: var(--color-modal-title);
+    background: var(--background-input);
+    
 }
 
 .input-group{
